@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakda Thongduang – Electrical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --surface: #111720;
+    --card: #161d28;
+    --border: #1e2d3d;
+    --accent: #00c9ff;
+    --accent2: #f0a500;
+    --text: #d0dae8;
+    --muted: #5a7089;
+    --heading: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 6vw;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 50%, rgba(0,201,255,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(240,165,0,0.06) 0%, transparent 60%);
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,201,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,201,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridPan 20s linear infinite;
+  }
+
+  @keyframes gridPan {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(60px, 60px); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 900;
+    color: var(--heading);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.35s forwards;
+  }
+
+  .hero-name span {
+    -webkit-text-stroke: 1px var(--accent);
+    color: transparent;
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.5s forwards;
+  }
+
+  .hero-desc {
+    margin-top: 1.5rem;
+    max-width: 540px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 0.6s 0.65s forwards;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.8s forwards;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .contact-item svg { color: var(--accent); flex-shrink: 0; }
+  .contact-item:hover { color: var(--accent); }
+
+  .hero-badge {
+    position: absolute;
+    right: 6vw;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards;
+  }
+
+  .badge-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,201,255,0.05);
+    box-shadow: 0 0 40px rgba(0,201,255,0.15);
+  }
+
+  .badge-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 5rem 6vw;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+
+  /* EXPERTISE GRID */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .expertise-card {
+    background: var(--card);
+    padding: 1.8rem;
+    transition: background 0.2s;
+  }
+  .expertise-card:hover { background: var(--surface); }
+
+  .expertise-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .expertise-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .expertise-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .tl-item {
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+  }
+
+  .tl-period {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .tl-role {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+  }
+
+  .tl-company {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .tl-projects { display: flex; flex-direction: column; gap: 0.8rem; }
+
+  .project-card {
+    background: var(--card);
+    border-left: 3px solid var(--accent2);
+    padding: 0.9rem 1.2rem;
+  }
+
+  .project-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.2rem;
+  }
+
+  .project-date {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-duties {
+    font-size: 0.8rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* SKILLS BARS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-item { }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .skill-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .skill-pct {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .skill-bar {
+    height: 2px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* CLIENTS */
+  .clients-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .client-tag {
+    border: 1px solid var(--border);
+    padding: 0.5rem 1.2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+  .client-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 6vw;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-badge { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label">Electrical Engineer · ECMS Specialist</p>
+    <h1 class="hero-name">Sakda<br><span>Thong</span>duang</h1>
+    <p class="hero-title">Commissioning &amp; Construction · 7+ Years Experience</p>
+    <p class="hero-desc">
+      Power Electronics Engineering background with deep expertise in ECMS, BMS, SCADA systems, and PLC programming (Schneider). Proven track record across airport infrastructure, smart grids, data centers, and industrial automation projects.
+    </p>
+    <div class="hero-contacts">
+      <a class="contact-item" href="tel:+66649763795">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.08 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +66 649 763 795
+      </a>
+      <a class="contact-item" href="/cdn-cgi/l/email-protection#bfccded4dbdecbd7d0d1d8dbcaded1d8ffd7d0cbd2ded6d391dcd0d2">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="__cf_email__" data-cfemail="94e7f5fff0f5e0fcfbfaf3f0e1f5faf3d4fcfbe0f9f5fdf8baf7fbf9">[email&#160;protected]</span>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/sakda-thongduang" target="_blank">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-3a2 2 0 110-4 2 2 0 010 4z"/></svg>
+        LinkedIn Profile
+      </a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="badge-circle">
+      <span class="badge-num">7+</span>
+      <span class="badge-text">Years<br>Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="section">
+  <p class="section-label">Core Competencies</p>
+  <h2 class="section-title">Technical Expertise</h2>
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="expertise-icon">⚡</div>
+      <div class="expertise-name">ECMS Systems</div>
+      <div class="expertise-desc">Electrical Control & Monitoring Systems — design, installation, and commissioning across major infrastructure projects</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🏗️</div>
+      <div class="expertise-name">BMS</div>
+      <div class="expertise-desc">Building Management Systems — SCADA GUI development, integration, and live commissioning on airport and data center scale</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🖥️</div>
+      <div class="expertise-name">PLC Programming</div>
+      <div class="expertise-desc">Function logic development using Schneider products; PLC panel wiring, testing, and commissioning</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📡</div>
+      <div class="expertise-name">SCADA Development</div>
+      <div class="expertise-desc">GUI development for SWG, EE, BMS, and CPMS systems across airports, railway, and industrial sites</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🔧</div>
+      <div class="expertise-name">Commissioning (CxA)</div>
+      <div class="expertise-desc">Full-cycle testing and commissioning including data cabling, documentation, and handover for Tier III data centers</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📋</div>
+      <div class="expertise-name">Project Engineering</div>
+      <div class="expertise-desc">Site supervision, quantity estimation, material management, contractor scheduling, and consultant coordination</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📐</div>
+      <div class="expertise-name">AutoCAD / Drawings</div>
+      <div class="expertise-desc">Preparation and approval of installation drawings for PLC panels, conduit, and electrical systems</div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🔌</div>
+      <div class="expertise-name">Smart Grid</div>
+      <div class="expertise-desc">Smart grid infrastructure experience — Mae Hong Son Smart Grid project under EGAT</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section">
+  <p class="section-label">Career History</p>
+  <h2 class="section-title">Work Experience</h2>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <p class="tl-period">Oct 2023 – Present</p>
+      <p class="tl-role">Electrical Engineer</p>
+      <p class="tl-company">Thai Semcon</p>
+      <div class="tl-projects">
+        <div class="project-card">
+          <p class="project-name">NEXT01 – Data Center Tier III 20 MW</p>
+          <p class="project-date">Oct 2023 – Present · GSA-WT-CTA-AUR-TTI</p>
+          <p class="project-duties">
+            Supervised ECMS conduit installation, estimated and calculated work quantities, ordered materials, and coordinated with employer. Conducted testing and commissioning (CxA). Managed data cabling systems and prepared material approval documents.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <p class="tl-period">Mar 2019 – Oct 2023</p>
+      <p class="tl-role">Project Engineer</p>
+      <p class="tl-company">Amplo Engineering</p>
+      <div class="tl-projects">
+        <div class="project-card">
+          <p class="project-name">AOT SCADA CC.1/2 – Suvarnabhumi Airport</p>
+          <p class="project-date">Mar 2019 – Jun 2021 · AOT-PLE</p>
+          <p class="project-duties">
+            Supervised conduit installation, planned contractor work per master schedule. Prepared installation drawings, coordinated with employer, wired PLC and EE panels, conducted T&C, developed SCADA GUI and PLC function logic.
+          </p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">SCADA Low Voltage – Suvarnabhumi Airport</p>
+          <p class="project-date">Aug 2021 – Mar 2022 · AOT</p>
+          <p class="project-duties">
+            Supervised conduit installation, coordinated documentation with employer. Prepared PLC panel installation drawings and performed testing and commissioning.
+          </p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">SCADA &amp; BMS CC.2/1 – Suvarnabhumi Airport</p>
+          <p class="project-date">Mar 2021 – Oct 2023 · AOT-PCE</p>
+          <p class="project-duties">
+            Supervised conduit installation, estimated work quantities, ordered materials, and planned contractor schedule per master plan.
+          </p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">Mae Hong Son Smart Grid</p>
+          <p class="project-date">Sep 2022 – Feb 2023 · EGAT-ITE</p>
+          <p class="project-duties">
+            Prepared installation drawings for PLC panel using AutoCAD; submitted to consultant for approval.
+          </p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">Track Doubling North-Eastern Line – Saraburi</p>
+          <p class="project-date">Apr 2023 – May 2023 · SRT-ITD</p>
+          <p class="project-duties">
+            Wired PLC and EE panels, conducted testing and commissioning. Developed GUI for SCADA system (SWG, EE, BMS).
+          </p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">Essilor Thailand – Rayong</p>
+          <p class="project-date">May 2023 – Oct 2023 · Essilor-ITE</p>
+          <p class="project-duties">
+            Developed GUI for SCADA system covering SWG, EE, BMS, and CPMS modules.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+  <p class="section-label">Technical Proficiency</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid" id="skillsGrid">
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">ECMS / BMS Systems</span><span class="skill-pct">95%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">SCADA Development</span><span class="skill-pct">90%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">PLC Programming (Schneider)</span><span class="skill-pct">88%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">Commissioning & Testing (CxA)</span><span class="skill-pct">92%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">AutoCAD</span><span class="skill-pct">80%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">Project Site Management</span><span class="skill-pct">85%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">Data Center Infrastructure</span><span class="skill-pct">82%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="82"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-header"><span class="skill-name">Electrical Fault Finding</span><span class="skill-pct">88%</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA CENTER SHOWCASE -->
+<section class="section" id="dcSection">
+  <p class="section-label">Featured Expertise</p>
+  <h2 class="section-title">Data Center Experience</h2>
+
+  <!-- DC Visual -->
+  <div class="dc-visual">
+    <div class="dc-scene">
+      <!-- Racks -->
+      <div class="rack-row">
+        <div class="rack" style="--d:0s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">PWR-01</div></div>
+        <div class="rack" style="--d:0.15s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">SWG-02</div></div>
+        <div class="rack rack-active" style="--d:0.3s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">ECMS-01</div></div>
+        <div class="rack rack-active" style="--d:0.45s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">BMS-03</div></div>
+        <div class="rack" style="--d:0.6s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">EE-04</div></div>
+        <div class="rack rack-active" style="--d:0.75s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">PLC-02</div></div>
+        <div class="rack" style="--d:0.9s"><div class="rack-top"></div><div class="rack-lights"><span></span><span></span><span></span><span></span></div><div class="rack-units"></div><div class="rack-label">PWR-05</div></div>
+      </div>
+      <!-- Floor labels -->
+      <div class="dc-floor-line"></div>
+      <!-- Floating data lines -->
+      <div class="data-stream ds1"></div>
+      <div class="data-stream ds2"></div>
+      <div class="data-stream ds3"></div>
+      <!-- Overlay text -->
+      <div class="dc-overlay-text">TIER III · 20 MW · ECMS COMMISSIONED</div>
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="dc-stats">
+    <div class="dc-stat">
+      <div class="dc-stat-val" data-target="20">0</div>
+      <div class="dc-stat-unit">MW</div>
+      <div class="dc-stat-label">Data Center Capacity</div>
+    </div>
+    <div class="dc-stat">
+      <div class="dc-stat-val" data-target="3">0</div>
+      <div class="dc-stat-unit">TIER</div>
+      <div class="dc-stat-label">Uptime Classification</div>
+    </div>
+    <div class="dc-stat">
+      <div class="dc-stat-val" data-target="6">0</div>
+      <div class="dc-stat-unit">SYS</div>
+      <div class="dc-stat-label">SCADA Systems Built</div>
+    </div>
+    <div class="dc-stat">
+      <div class="dc-stat-val" data-target="99">0</div>
+      <div class="dc-stat-unit">%</div>
+      <div class="dc-stat-label">System Availability Target</div>
+    </div>
+  </div>
+
+  <!-- DC Roles Cards -->
+  <div class="dc-roles">
+    <div class="dc-role-card">
+      <div class="dc-role-icon">🔌</div>
+      <h3 class="dc-role-title">ECMS Supervision</h3>
+      <p class="dc-role-desc">Full conduit installation supervision, quantity estimation, material procurement, and contractor planning aligned with master schedule.</p>
+    </div>
+    <div class="dc-role-card highlight">
+      <div class="dc-role-icon">⚙️</div>
+      <h3 class="dc-role-title">Commissioning (CxA)</h3>
+      <p class="dc-role-desc">End-to-end testing and commissioning as Commissioning Agent — verifying all ECMS, BMS, and power systems meet Tier III specifications.</p>
+    </div>
+    <div class="dc-role-card">
+      <div class="dc-role-icon">🖧</div>
+      <h3 class="dc-role-title">Data Cabling</h3>
+      <p class="dc-role-desc">Managed structured data cabling systems within the data center, ensuring proper routing, labeling, and documentation for handover.</p>
+    </div>
+    <div class="dc-role-card">
+      <div class="dc-role-icon">📄</div>
+      <h3 class="dc-role-title">Material Approval Docs</h3>
+      <p class="dc-role-desc">Prepared full documentation packages for material approval and system delivery — coordinating with employers and consultants.</p>
+    </div>
+  </div>
+
+  <!-- COMMISSIONING LEVELS -->
+  <div class="cxl-section">
+    <div class="cxl-header">
+      <span class="cxl-pretitle">Data Center Commissioning Process</span>
+      <h3 class="cxl-main-title">5 Levels of Commissioning (CxL)</h3>
+      <p class="cxl-intro">Data center commissioning is structured across 5 progressive levels, each acting as a mandatory gate before advancing to the next phase — tracked and verified through color-coded tags applied to all equipment and systems.</p>
+    </div>
+
+    <div class="cxl-track">
+
+      <div class="cxl-card" style="--tag:#e53e3e;--glow:rgba(229,62,62,0.25)">
+        <div class="cxl-tag-badge" style="background:var(--tag)">CxL 1</div>
+        <div class="cxl-dot" style="background:var(--tag);box-shadow:0 0 12px var(--glow)"></div>
+        <div class="cxl-content">
+          <div class="cxl-label-row">
+            <span class="cxl-tag-pill" style="background:var(--tag)">🟥 RED TAG</span>
+            <span class="cxl-stage">Factory Testing &amp; Site Delivery</span>
+          </div>
+          <h4 class="cxl-title">Factory Acceptance Test &amp; Equipment Delivery</h4>
+          <p class="cxl-desc">Level 1 covers two sequential sub-phases — factory-based testing before shipment (1A), followed by formal equipment receipt and material delivery verification upon arrival at site (1B).</p>
+
+          <!-- CxL 1A -->
+          <div class="cxl-sub">
+            <div class="cxl-sub-badge" style="background:#c53030">1A</div>
+            <div class="cxl-sub-body">
+              <div class="cxl-sub-title">CxL 1A &mdash; FAT / Branch Test</div>
+              <p class="cxl-sub-desc">Factory Acceptance Test conducted at the manufacturer&rsquo;s facility or approved test bench. Verifies equipment performance, QA/QC compliance, control logic, protection settings, and functional integrity before release for shipping — covering switchboards, UPS, generators, transformers, and PLC panels.</p>
+              <div class="cxl-tasks">
+                <span>Factory Acceptance Test</span><span>Branch / Bench Test</span><span>QA/QC Inspection</span><span>Protection Settings</span><span>Control Logic Check</span><span>FAT Report Sign-off</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CxL 1B -->
+          <div class="cxl-sub" style="margin-top:0.9rem">
+            <div class="cxl-sub-badge" style="background:#9b2c2c">1B</div>
+            <div class="cxl-sub-body">
+              <div class="cxl-sub-title">CxL 1B &mdash; Site Delivery &amp; Material Receipt</div>
+              <p class="cxl-sub-desc">Formal receiving of equipment and materials delivered to site. Includes inspection against approved Material Delivery (MD) documents, quantity verification, condition checks for transit damage, and confirmation that all items match approved submittals prior to installation.</p>
+              <div class="cxl-tasks">
+                <span>Material Delivery (MD)</span><span>Equipment Receiving</span><span>Quantity Verification</span><span>Damage Inspection</span><span>Submittal Conformance</span><span>Delivery Documentation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cxl-card" style="--tag:#d69e2e;--glow:rgba(214,158,46,0.25)">
+        <div class="cxl-tag-badge" style="background:var(--tag)">CxL 2</div>
+        <div class="cxl-dot" style="background:var(--tag);box-shadow:0 0 12px var(--glow)"></div>
+        <div class="cxl-content">
+          <div class="cxl-label-row">
+            <span class="cxl-tag-pill" style="background:var(--tag)">🟨 YELLOW TAG</span>
+            <span class="cxl-stage">Cable Installation &amp; Point-to-Point</span>
+          </div>
+          <h4 class="cxl-title">Cable Installation, Tagging &amp; Point-to-Point Test</h4>
+          <p class="cxl-desc">Physical installation of all cable types — power, control, signal, data, and fiber optics — through conduit, cable tray, and ladder rack per approved drawings. Each cable is tagged with a unique identifier on both ends. Followed by systematic point-to-point verification of every cable run and termination against wiring diagrams and I/O schedules, confirming continuity, polarity, shielding, and termination quality at both panel and field ends before energization.</p>
+          <div class="cxl-tasks">
+            <span>Power Cable Pull</span><span>Control Cable</span><span>Signal / Data Cable</span><span>Fiber Optic</span><span>Conduit &amp; Cable Tray</span><span>Cable End Tagging</span><span>Core Continuity Test</span><span>Polarity Check</span><span>Shield / Earth Verify</span><span>Terminal Block Check</span><span>I/O Schedule Confirm</span><span>Insulation Resistance Test</span><span>P2P Report Sign-off</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cxl-card" style="--tag:#276749;--glow:rgba(39,103,73,0.35)">
+        <div class="cxl-tag-badge" style="background:var(--tag)">CxL 3</div>
+        <div class="cxl-dot" style="background:var(--tag);box-shadow:0 0 12px var(--glow)"></div>
+        <div class="cxl-content">
+          <div class="cxl-label-row">
+            <span class="cxl-tag-pill" style="background:var(--tag)">🟩 GREEN TAG</span>
+            <span class="cxl-stage">System Start-Up</span>
+          </div>
+          <h4 class="cxl-title">Systems Energization, Start-Up & Point-to-Graphic</h4>
+          <p class="cxl-desc">Energize and perform first start-up of each system — verifying voltage, current, phase sequence, ECMS/BMS operation, and baseline alarm functionality. Includes Point-to-Graphic (P2G) verification: confirming that every field device, sensor, and I/O point is correctly represented and displaying accurate real-time values on the SCADA/BMS graphic screen, ensuring the control graphic matches the actual physical installation.</p>
+          <div class="cxl-tasks">
+            <span>Energization</span><span>First Start-Up</span><span>ECMS/BMS Check</span><span>Alarm Verification</span><span>Point-to-Graphic (P2G)</span><span>SCADA Screen Verify</span><span>I/O Display Check</span><span>Real-Time Value Confirm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cxl-card" style="--tag:#2b6cb0;--glow:rgba(43,108,176,0.3)">
+        <div class="cxl-tag-badge" style="background:var(--tag)">CxL 4</div>
+        <div class="cxl-dot" style="background:var(--tag);box-shadow:0 0 12px var(--glow)"></div>
+        <div class="cxl-content">
+          <div class="cxl-label-row">
+            <span class="cxl-tag-pill" style="background:var(--tag)">🟦 BLUE TAG</span>
+            <span class="cxl-stage">Functional Testing</span>
+          </div>
+          <h4 class="cxl-title">ECMS Functional Test — Electrical &amp; Mechanical Systems</h4>
+          <p class="cxl-desc">Functional testing of all systems under ECMS scope — verifying sequence of operations, control logic, interlock functions, trip & alarm responses for both electrical and mechanical systems per design specification.</p>
+
+          <!-- Electrical -->
+          <div class="cxl-sys-group">
+            <div class="cxl-sys-label elec">⚡ Electrical Systems</div>
+            <div class="cxl-sys-cards">
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">HVSB</div>
+                <div class="cxl-sys-desc">High Voltage Switchboard — functional test of breaker operation, protection relay, interlock sequence, trip & alarm</div>
+              </div>
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">RMU</div>
+                <div class="cxl-sys-desc">Ring Main Unit — test switching sequence, auto-reclosing, earth switch interlock, and SCADA control feedback</div>
+              </div>
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">GEN</div>
+                <div class="cxl-sys-desc">Generator — test auto-start on mains failure, load transfer sequence, ATS interlock, run/stop via ECMS, and fault alarms</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mechanical -->
+          <div class="cxl-sys-group" style="margin-top:1rem">
+            <div class="cxl-sys-label mech">🌀 Mechanical Systems</div>
+            <div class="cxl-sys-cards">
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">AHU</div>
+                <div class="cxl-sys-desc">Air Handling Unit — functional test of start/stop, speed control, supply air setpoint, filter dirty alarm, and BMS interlock</div>
+              </div>
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">EAF</div>
+                <div class="cxl-sys-desc">Exhaust Air Fan — test run/stop command, airflow feedback, fire alarm interlock, and damper control sequence</div>
+              </div>
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">PAHU</div>
+                <div class="cxl-sys-desc">Pre-treated Air Handling Unit — test pre-cooling/heating sequence, humidity control, outside air damper, and ECMS monitoring</div>
+              </div>
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">CRAC</div>
+                <div class="cxl-sys-desc">Computer Room Air Conditioner — test cooling capacity control, temperature/humidity setpoint, redundancy switchover, and ECMS/BMS alarm feedback</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Power Infrastructure -->
+          <div class="cxl-sys-group" style="margin-top:1rem">
+            <div class="cxl-sys-label power">🔋 Power Infrastructure</div>
+            <div class="cxl-sys-cards">
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">UPS</div>
+                <div class="cxl-sys-desc">Uninterruptible Power Supply — test auto-transfer to battery on mains failure, bypass mode, battery health alarm, load capacity, and ECMS status reporting</div>
+              </div>
+              <div class="cxl-sys-card">
+                <div class="cxl-sys-name">PDU</div>
+                <div class="cxl-sys-desc">Power Distribution Unit — test branch circuit protection, load monitoring per outlet, overload alarm, remote switching, and ECMS power metering integration</div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+          .cxl-sys-label.power { background: rgba(214,158,46,0.2); color: #f6c56a; border: 1px solid rgba(214,158,46,0.35); }
+          </style>
+
+          <div class="cxl-tasks" style="margin-top:1rem">
+            <span>Interlock Test</span><span>Sequence of Operation</span><span>PLC Logic Verify</span><span>Trip Function</span><span>Auto-Start / Failover</span><span>Alarm Response</span><span>SCADA Feedback</span><span>Functional Test Report</span>
+          </div>
+
+          <style>
+          .cxl-sys-group { margin-top: 1rem; }
+          .cxl-sys-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            border-radius: 2px;
+          }
+          .cxl-sys-label.elec { background: rgba(43,108,176,0.25); color: #63b3ed; border: 1px solid rgba(43,108,176,0.4); }
+          .cxl-sys-label.mech { background: rgba(56,161,105,0.2); color: #68d391; border: 1px solid rgba(56,161,105,0.35); }
+          .cxl-sys-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.5rem;
+          }
+          .cxl-sys-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            padding: 0.8rem;
+            transition: border-color 0.2s;
+          }
+          .cxl-sys-card:hover { border-color: #2b6cb0; }
+          .cxl-sys-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--heading);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+          }
+          .cxl-sys-desc { font-size: 0.73rem; color: var(--muted); line-height: 1.5; }
+          </style>
+        </div>
+      </div>
+
+      <div class="cxl-card" style="--tag:#4a5568;--glow:rgba(200,200,220,0.2)">
+        <div class="cxl-tag-badge" style="background:#e2e8f0;color:#111">CxL 5</div>
+        <div class="cxl-dot" style="background:#cbd5e0;box-shadow:0 0 12px var(--glow)"></div>
+        <div class="cxl-content">
+          <div class="cxl-label-row">
+            <span class="cxl-tag-pill" style="background:#e2e8f0;color:#333">⬜ WHITE TAG</span>
+            <span class="cxl-stage">Integrated System Test</span>
+          </div>
+          <h4 class="cxl-title">Integrated System Test (IST)</h4>
+          <p class="cxl-desc">Simultaneously test all systems in an integrated scenario — simulating real-world events such as power outages, generator failures, and BMS failover across the entire facility to confirm Tier III redundancy and handover readiness.</p>
+          <div class="cxl-tasks">
+            <span>Full IST Scenario</span><span>Power Blackout Sim</span><span>BMS Integration</span><span>Handover Ready</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+  .cxl-section {
+    margin-bottom: 2rem;
+  }
+  .cxl-header {
+    margin-bottom: 2rem;
+  }
+  .cxl-pretitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .cxl-main-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .cxl-intro {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 680px;
+  }
+
+  .cxl-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 3.5rem;
+  }
+
+  .cxl-track::before {
+    content: '';
+    position: absolute;
+    left: 1.1rem;
+    top: 1.2rem;
+    bottom: 1.2rem;
+    width: 2px;
+    background: linear-gradient(to bottom, #e53e3e, #d69e2e, #276749, #2b6cb0, #cbd5e0);
+    opacity: 0.5;
+  }
+
+  .cxl-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: none;
+    padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    transition: background 0.2s;
+  }
+  .cxl-card:hover { background: var(--surface); }
+
+  .cxl-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 1.6rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid var(--bg);
+  }
+
+  .cxl-tag-badge {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  .cxl-content { flex: 1; }
+
+  .cxl-label-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .cxl-tag-pill {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .cxl-stage {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .cxl-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .cxl-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+  }
+
+  .cxl-tasks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+
+  .cxl-sub {
+    display: flex;
+    gap: 1rem;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(229,62,62,0.2);
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+  }
+  .cxl-sub-badge {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 0.02em;
+  }
+  .cxl-sub-body { flex: 1; }
+  .cxl-sub-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+  }
+  .cxl-sub-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+  }
+  .cxl-tasks span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  </style>
+</section>
+
+<style>
+/* DATA CENTER VISUAL */
+.dc-visual {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dc-scene {
+  position: relative;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.rack-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.7rem;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.rack {
+  width: 70px;
+  height: 160px;
+  background: linear-gradient(180deg, #1a2535 0%, #111720 100%);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem 0.3rem;
+  gap: 0.3rem;
+  animation: rackIn 0.5s var(--d,0s) both;
+}
+
+@keyframes rackIn {
+  from { opacity:0; transform: scaleY(0.3); transform-origin: bottom; }
+  to { opacity:1; transform: scaleY(1); }
+}
+
+.rack-active { border-color: rgba(0,201,255,0.4); box-shadow: 0 0 20px rgba(0,201,255,0.1) inset; }
+
+.rack-top {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  margin-bottom: 0.2rem;
+}
+
+.rack-lights {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rack-lights span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  animation: blink 2s infinite;
+}
+
+.rack-active .rack-lights span {
+  background: var(--accent);
+  animation: blink 1.2s infinite;
+}
+
+.rack-lights span:nth-child(2) { animation-delay: 0.4s; background: var(--accent2); }
+.rack-lights span:nth-child(3) { animation-delay: 0.8s; }
+.rack-lights span:nth-child(4) { animation-delay: 1.2s; background: #00ff88; }
+
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50% { opacity:0.2; }
+}
+
+.rack-units {
+  flex: 1;
+  width: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 4px,
+    transparent 4px, transparent 10px
+  );
+}
+
+.rack-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.55rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.rack-active .rack-label { color: var(--accent); }
+
+.dc-floor-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  position: relative;
+  z-index: 2;
+}
+
+.data-stream {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  animation: streamFlow 3s linear infinite;
+  opacity: 0.3;
+}
+
+.ds1 { left: 25%; animation-delay: 0s; }
+.ds2 { left: 55%; animation-delay: 1s; }
+.ds3 { left: 75%; animation-delay: 2s; }
+
+@keyframes streamFlow {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.dc-overlay-text {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* DC STATS */
+.dc-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .dc-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.dc-stat {
+  background: var(--card);
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.dc-stat-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.dc-stat-unit {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  color: var(--accent2);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.dc-stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* DC ROLE CARDS */
+.dc-roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dc-role-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.dc-role-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+.dc-role-card.highlight {
+  border-color: var(--accent2);
+  background: linear-gradient(135deg, var(--card), rgba(240,165,0,0.05));
+}
+
+.dc-role-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+
+.dc-role-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.dc-role-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+/* SCHNEIDER BANNER */
+.schneider-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent2);
+  padding: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .schneider-banner { grid-template-columns: 1fr; }
+}
+
+.schneider-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--accent2);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.schneider-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--heading);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.schneider-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+.plc-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.plc-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.8rem 1rem;
+  text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 80px;
+}
+
+.plc-cpu {
+  border-color: var(--accent2);
+  background: rgba(240,165,0,0.08);
+  color: var(--accent2);
+}
+
+.plc-arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:0.4; transform: translateX(0); }
+  50% { opacity:1; transform: translateX(3px); }
+}
+</style>
+
+<!-- CLIENTS -->
+<section class="section">
+  <p class="section-label">Project References</p>
+  <h2 class="section-title">Clients & Organizations</h2>
+  <div class="clients-list">
+    <span class="client-tag">AOT – Airports of Thailand</span>
+    <span class="client-tag">EGAT</span>
+    <span class="client-tag">SRT – State Railway</span>
+    <span class="client-tag">EssilorLuxottica</span>
+    <span class="client-tag">GSA</span>
+    <span class="client-tag">Aurecon</span>
+    <span class="client-tag">CTA</span>
+    <span class="client-tag">WT</span>
+    <span class="client-tag">ITD</span>
+    <span class="client-tag">PCE</span>
+    <span class="client-tag">ITE</span>
+    <span class="client-tag">TTI</span>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section">
+  <p class="section-label">Academic Background</p>
+  <h2 class="section-title">Education</h2>
+  <div style="border-left: 3px solid var(--accent); padding-left: 1.5rem;">
+    <p class="tl-period">Aug 2014 – Apr 2023</p>
+    <p class="tl-role" style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;color:var(--heading);text-transform:uppercase;">Bachelor of Engineering</p>
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;color:var(--accent2);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin:.3rem 0 .5rem;">Power Electronics Engineering Technology</p>
+    <p style="font-size:.9rem;color:var(--muted);">King Mongkut's University of Technology North Bangkok (KMUTNB)</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Sakda Thongduang</div>
+  <div class="footer-copy">Electrical Engineer · ECMS Specialist · Bangkok, Thailand</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Animate DC counters
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.dc-stat-val').forEach(el => {
+          const target = +el.dataset.target;
+          let current = 0;
+          const step = Math.ceil(target / 40);
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current;
+            if (current >= target) clearInterval(timer);
+          }, 30);
+        });
+        counterObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const dcSection = document.getElementById('dcSection');
+  if (dcSection) counterObs.observe(dcSection);
+
+  // Animate skill bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelec
